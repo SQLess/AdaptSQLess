@@ -1,0 +1,16 @@
+{
+  "startTime": "2023-10-11 15:33:11.613523711 +0800 CST m=+2.589553761",
+  "reportTime": "2023-10-11 15:33:12.764436326 +0800 CST m=+3.740466364",
+  "mutationName": "pinonlo",
+  "isUpper": false,
+  "ddlPath": "/home/ll5000/Desktop/db 快捷方式/SQLess/src/main/java/Bug/output.data.sql",
+  "originalSql": "(SELECT (WEEKOFYEAR(_UTF8MB4'2013-03-26')-0) AS `f1`,(TO_BASE64(`f5`)) AS `f2`,(DATE_SUB(~OCT(`f4`), INTERVAL 1 SECOND_MICROSECOND)) AS `f3` FROM (SELECT `col_char(20)_key_signed` AS `f4`,`col_float_undef_signed` AS `f5`,`col_bigint_undef_unsigned` AS `f6` FROM `table_7_utf8_undef` IGNORE INDEX (`col_char(20)_key_signed`)) AS `t1`) UNION (SELECT (DATE_SUB(LEFT(`f8`, 5), INTERVAL 1 YEAR_MONTH)) AS `f1`,(`f7` DIV COERCIBILITY(`f7`)|BINARY `f8`) AS `f2`,(~CHARSET(_UTF8MB4'2011')) AS `f3` FROM (SELECT `col_double_undef_unsigned` AS `f10`,`col_decimal(40, 20)_key_unsigned` AS `f8`,`col_double_undef_unsigned` AS `f11` FROM `table_7_utf8_undef` USE INDEX (`col_varchar(20)_key_signed`, `col_double_key_signed`)) AS `t2` NATURAL JOIN (SELECT (DATE_SUB(`f13`, INTERVAL 1 DAY)) AS `f7`,(DATE_SUB(-BIT_LENGTH(`f13`), INTERVAL 1 SECOND)) AS `f12`,(`f14`) AS `f9` FROM (SELECT `col_double_key_unsigned` AS `f13`,`col_decimal(40, 20)_undef_signed` AS `f14`,`col_char(20)_undef_signed` AS `f15` FROM `table_7_utf8_undef` FORCE INDEX (`col_double_key_signed`, `col_float_key_signed`)) AS `t3`) AS `t4`);",
+  "mutatedSql": "(SELECT (WEEKOFYEAR(_UTF8MB4'2013-03-26')-0) AS `f1`,(TO_BASE64(`f5`)) AS `f2`,(DATE_SUB(~OCT(`f4`)\n INTERVAL 1 SECOND_MICROSECOND)) AS `f3` FROM (SELECT `col_char(20)_key_signed` AS `f4`,`col_float\nundef_signed` AS `f5`,`col_bigint_undef_unsigned` AS `f6` FROM `table_7_utf8_undef` IGNORE INDEX (\ncol_char(20)_key_signed`)) AS `t1`) UNION (SELECT (DATE_SUB(LEFT(`f8`, 5), INTERVAL 1 YEAR_MONTH))\nAS `f1`,(`f7` DIV COERCIBILITY(`f7`)|BINARY `f8`) AS `f2`,(~CHARSET(_UTF8MB4'2011')) AS `f3` FROM (\nELECT `col_double_undef_unsigned` AS `f10`,`col_decimal(40, 20)_key_unsigned` AS `f8`,`col_double_\nndef_unsigned` AS `f11` FROM `table_7_utf8_undef` USE INDEX (`col_varchar(20)_key_signed`, `col_do\nble_key_signed`)) AS `t2` NATURAL JOIN (SELECT DISTINCT (DATE_SUB(`f13`, INTERVAL 1 DAY)) AS `f7`,\nDATE_SUB(-BIT_LENGTH(`f13`), INTERVAL 1 SECOND)) AS `f12`,(`f14`) AS `f9` FROM (SELECT `col_double\nkey_unsigned` AS `f13`,`col_decimal(40, 20)_undef_signed` AS `f14`,`col_char(20)_undef_signed` AS\n`f15` FROM `table_7_utf8_undef` FORCE INDEX (`col_double_key_signed`, `col_float_key_signed`)) AS `t3`) AS `t4`);",
+  "dbms": "mysql",
+  "host": "127.0.0.1",
+  "port": 13306,
+  "username": "root",
+  "password": "123456",
+  "dbname": "TEST3",
+  "endTime": "2023-10-11 15:33:12.872328372 +0800 CST m=+3.848358411"
+}

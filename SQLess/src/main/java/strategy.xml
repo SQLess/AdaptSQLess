@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <SimplificationStrategy>
+
+        <!-- Clause Simplification -->
+        <REMOVEORDERBY>true</REMOVEORDERBY>
+        <REMOVEWITH>false</REMOVEWITH>
+        <REMOVEUSEINDEX>false</REMOVEUSEINDEX>
+        <REMOVEUNIONLEFT>false</REMOVEUNIONLEFT>
+        <REMOVEUNIONRIGHT>false</REMOVEUNIONRIGHT>
+        <REMOVEGROUPBY>true</REMOVEGROUPBY>
+        <REMOVEHAVING>true</REMOVEHAVING>
+        <REMOVELIMIT>true</REMOVELIMIT>
+        <REMOVEWHERE>true</REMOVEWHERE>
+
+        <!-- Column Simplification -->
+        <REMOVECOLUMN>true</REMOVECOLUMN>
+
+        <!-- Subquery Simplification -->
+        <REMOVEUNUSEDEF>false</REMOVEUNUSEDEF>
+
+        <!-- Expression Simplification -->
+        <REMOVEBITOPLEFT>true</REMOVEBITOPLEFT>
+        <REMOVEBITOPRIGHT>true</REMOVEBITOPRIGHT>
+        <REMOVELOGICALOPLEFT>true</REMOVELOGICALOPLEFT>
+        <REMOVELOGICALOPRIGHT>true</REMOVELOGICALOPRIGHT>
+
+        <!-- Optimizer Hints and other Modifiers -->
+        <REMOVESQLHINT>false</REMOVESQLHINT>
+
+    </SimplificationStrategy>
+</config>
