@@ -1,0 +1,9 @@
+{
+  "mutationName": "pinolo",
+  "dbms": "mysql",
+  "host": "127.0.0.1",
+  "port": 13306,
+  "username": "root",
+  "password": "123456",
+  "dbname": "TEST3"
+}

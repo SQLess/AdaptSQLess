@@ -11,8 +11,8 @@
 		<artifactId>antlr4-master</artifactId>
 		<version>4.11.1</version>
 	</parent>
-	<artifactId>antlr4</artifactId>
-	<name>ANTLR 4 Tool</name>
+	<artifactId>AdaptParser</artifactId>
+	<name>AdaptParser 4 Tool</name>
 	<url>http://www.antlr.org</url>
 	<description>The ANTLR 4 grammar compiler.</description>
 

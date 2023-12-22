@@ -4,10 +4,10 @@
 
         <!-- Clause Simplification -->
         <REMOVEORDERBY>true</REMOVEORDERBY>
-        <REMOVEWITH>false</REMOVEWITH>
-        <REMOVEUSEINDEX>false</REMOVEUSEINDEX>
-        <REMOVEUNIONLEFT>false</REMOVEUNIONLEFT>
-        <REMOVEUNIONRIGHT>false</REMOVEUNIONRIGHT>
+        <REMOVEWITH>true</REMOVEWITH>
+        <REMOVEUSEINDEX>true</REMOVEUSEINDEX>
+        <REMOVEUNIONLEFT>true</REMOVEUNIONLEFT>
+        <REMOVEUNIONRIGHT>true</REMOVEUNIONRIGHT>
         <REMOVEGROUPBY>true</REMOVEGROUPBY>
         <REMOVEHAVING>true</REMOVEHAVING>
         <REMOVELIMIT>true</REMOVELIMIT>
@@ -17,7 +17,7 @@
         <REMOVECOLUMN>true</REMOVECOLUMN>
 
         <!-- Subquery Simplification -->
-        <REMOVEUNUSEDEF>false</REMOVEUNUSEDEF>
+        <REMOVEUNUSEDEF>true</REMOVEUNUSEDEF>
 
         <!-- Expression Simplification -->
         <REMOVEBITOPLEFT>true</REMOVEBITOPLEFT>
@@ -26,7 +26,7 @@
         <REMOVELOGICALOPRIGHT>true</REMOVELOGICALOPRIGHT>
 
         <!-- Optimizer Hints and other Modifiers -->
-        <REMOVESQLHINT>false</REMOVESQLHINT>
+        <REMOVESQLHINT>true</REMOVESQLHINT>
 
     </SimplificationStrategy>
 </config>

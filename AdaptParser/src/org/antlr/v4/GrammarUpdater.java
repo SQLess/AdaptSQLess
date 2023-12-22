@@ -81,7 +81,7 @@ public class GrammarUpdater {
                         }
                         updatedRule.append(" ;");
                         updatedLines.add(updatedRule.toString());  // Update the line with new rules
-                        System.out.println(updatedRule);
+//                        System.out.println(updatedRule);
                         ruleFound = false;  // Reset the flag as we've found the semicolon
                     } else {
                         updatedLines.add(line);  // Add the current line as is

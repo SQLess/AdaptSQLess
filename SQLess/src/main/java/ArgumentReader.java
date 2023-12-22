@@ -4,8 +4,8 @@
  * @date 2023/11/2 下午7:58
  */
 public class ArgumentReader {
+    private String initialPath;
     private String json1path;
-    private String json2path;
     private String logpath;
     private String ddlpath;
     private String outputpath;
@@ -15,30 +15,26 @@ public class ArgumentReader {
         if (args.length != 5) {
             throw new IllegalArgumentException("Expected 5 arguments: json1path, json2path, logpath, ddlpath, outputpath");
         }
-
-        this.json1path = args[0];
-        this.json2path = args[1];
+        this.initialPath = args[0];
+        this.json1path = args[1];
         this.logpath = args[2];
         this.ddlpath = args[3];
         this.outputpath = args[4];
     }
 
-    public ArgumentReader(String json1Path, String json2Path, String logPath, String ddlPath, String outputpath) {
+    public ArgumentReader(String initialPath, String json1Path, String ddlPath, String outputpath) {
+        this.initialPath = initialPath;
         this.json1path = json1Path;
-        this.json2path = json2Path;
-        this.logpath = logPath;
+//        this.logpath = logPath;
         this.ddlpath = ddlPath;
         this.outputpath = outputpath;
-
     }
 
+    public String getInitialPath(){return initialPath;}
     public String getJson1path() {
         return json1path;
     }
 
-    public String getJson2path() {
-        return json2path;
-    }
 
     public String getLogpath() {
         return logpath;
@@ -52,7 +48,6 @@ public class ArgumentReader {
     public String toString() {
         return "ArgumentReader{" +
                 "json1path='" + json1path + '\'' +
-                ", json2path='" + json2path + '\'' +
                 ", logpath='" + logpath + '\'' +
                 ", ddlpath='" + ddlpath + '\'' +
                 ", outputpath='" + outputpath + '\'' +

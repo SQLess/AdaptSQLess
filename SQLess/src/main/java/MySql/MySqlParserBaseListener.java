@@ -1,5 +1,6 @@
-// Generated from MySqlParser.g4 by ANTLR 4.13.0
+// Generated from /home/linlideepin/Desktop/AdaptSQLess/SQLess/src/g4/new_parser/MySqlParser.g4 by ANTLR 4.13.1
 package MySql;
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;

@@ -20,8 +20,11 @@ import static org.antlr.v4.Util.getSqlsFromDirectory;
 public class MyTool extends Tool {
     public static Grammar lastProcessGrammar;
 
+    public final String[] args;
+
     public MyTool(String[] args) {
         super(args);
+        this.args = args;
     }
 
     public static void main(String[] args) {
@@ -30,14 +33,14 @@ public class MyTool extends Tool {
 
         try {
             antlr.processGrammarsOnCommandLine();  //生成解析器和词法分析器代码
-            System.out.println(lastProcessGrammar.fileName);
+//            System.out.println(lastProcessGrammar.fileName);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             if ( antlr.log ) {
                 try {
                     String logname = antlr.logMgr.save();
-                    System.out.println("wrote "+logname);
+//                    System.out.println("wrote "+logname);
                 }
                 catch (IOException ioe) {
                     antlr.errMgr.toolError(ErrorType.INTERNAL_ERROR, ioe);
@@ -69,10 +72,12 @@ public class MyTool extends Tool {
         /**
          * Step1:输入需要学习的sql语句
          */
-        String directoryPath = "evaluate/postgres_examples";  // 替换为您的SQL文件夹路径
+        String directoryPath = grammarLearningPath;
+//        String directoryPath = "resources/postgres_example";  // 替换为您的SQL文件夹路径
         List<String> allSqlStatements = new ArrayList<>();
         Set<Rule> uniqueRules = new HashSet<>();
         allSqlStatements = getSqlsFromDirectory(directoryPath);
+        System.out.println(allSqlStatements);
         for (String sql : allSqlStatements) {
             /**
              * Step 2：如果解析失败，则需要创建新的规则
@@ -86,7 +91,8 @@ public class MyTool extends Tool {
         /**
          * Step 4:将新的规则写入g4文件
          */
-        String newFilePath = "g4/MySqlParser_new.g4";
+        String newFilePath = newGrammarOutputPath + "/MySqlParser.g4";
+//        String newFilePath = "g4/MySqlParser_new.g4";
         GrammarUpdater.updateGrammarFile(lastProcessGrammar.fileName,newFilePath,uniqueRules);
 
         test(rules);
@@ -111,11 +117,11 @@ public class MyTool extends Tool {
          * 从Parser Tree中创建
          */
         if (errorListener.hasError()) {
-            System.out.println("Failed sql : " + sql);
+//            System.out.println("Failed sql : " + sql);
             List<String> failedRules = errorListener.getTopRules();
-            System.out.println("Failed Rules : ");
-            for(String s : failedRules)
-                System.out.println("        " + s);
+//            System.out.println("Failed Rules : ");
+//            for(String s : failedRules)
+//                System.out.println("        " + s);
             FailedRuleVisitor failedRuleVisitor = new FailedRuleVisitor(failedRules, parser);
             failedRuleVisitor.visit(tree);  // tree 是你的 ParseTree 对象
 
@@ -127,14 +133,14 @@ public class MyTool extends Tool {
                 String ruleDefinition = String.join(" ", tokenNames);
                 Rule newRule = new Rule(failedRule, ruleDefinition);
 
-                System.out.println("Created new rules: " + newRule);
+//                System.out.println("Created new rules: " + newRule);
 
                 /**
                  * Step 3: 将新的规则和原先的规则进行归约
                  */
                 Rule mergerule = Rule.Reduction(rules,newRule);
                 result.add(mergerule);
-                System.out.println("Mergerule : " + mergerule);
+//                System.out.println("Mergerule : " + mergerule);
             }
         }
         return result;

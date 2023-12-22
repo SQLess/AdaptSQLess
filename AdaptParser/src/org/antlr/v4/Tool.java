@@ -154,6 +154,9 @@ public class Tool {
 	 */
 	DefaultToolListener defaultListener = new DefaultToolListener(this);
 
+	public String newGrammarOutputPath = "resources";
+	public String grammarLearningPath = "resources/postgres_example";
+
 //	public static void main(String[] args) throws IOException {
 //        Tool antlr = new Tool(args);
 //        if ( args.length == 0 ) { antlr.help(); antlr.exit(0); }
@@ -229,6 +232,28 @@ public class Tool {
 					}
 				}
 			}
+
+			// Handle new options -n and -l
+			if (arg.equals("-n")) {
+				if (i < args.length) {
+					newGrammarOutputPath = args[i];
+					i++;
+				}
+				continue;
+			}
+
+			if (arg.equals("-l")) {
+				if (i < args.length) {
+					grammarLearningPath = args[i];
+					i++;
+				}
+				continue;
+			}
+
+			if (!found) {
+				errMgr.toolError(ErrorType.INVALID_CMDLINE_ARG, arg);
+			}
+
 			if ( !found ) {
 				errMgr.toolError(ErrorType.INVALID_CMDLINE_ARG, arg);
 			}

@@ -1,0 +1,17 @@
+{
+  "originalSql" : "SELECT (DATE_SUB(_UTF8MB4'2019-08-05', INTERVAL 1 DAY_SECOND)>>`f4`*COS(7327249037932383944)) AS `f1`,(COLLATION(`f4`)&`f5`) AS `f2`,(`f6`) AS `f3` FROM (SELECT `col_varchar(20)_key_signed` AS `f4`,`col_char(20)_undef_signed` AS `f5`,`col_double_key_signed` AS `f6` FROM `table_3_utf8_undef` FORCE INDEX (`col_double_key_unsigned`, `col_varchar(20)_key_signed`)) AS `t1` WHERE (((DATE_SUB(COERCIBILITY(`f4`), INTERVAL 1 DAY_MINUTE))<=ANY (SELECT `col_float_undef_signed` FROM `table_3_utf8_undef` USE INDEX (`col_bigint_key_signed`))) OR ((CAST((DAYOFMONTH(_UTF8MB4'2005-03-14')) AS CHAR) LIKE _UTF8MB4'%1%') IS TRUE)) IS TRUE HAVING (((`f2`+`f3`+CHAR_LENGTH(`f1`)) NOT IN (CHARSET(`f2`),`f2`,_UTF8MB4'2013-10-09')) OR (NOT ((FORMAT_BYTES(`f1`))=ANY (SELECT `col_char(20)_undef_signed` FROM `table_7_utf8_undef` USE INDEX (`col_bigint_key_unsigned`, `col_double_key_signed`)))) OR ((DATE_SUB(~`f3`, INTERVAL 1 MONTH)) IS TRUE)) IS TRUE ORDER BY `f5`",
+  "mutatedSql" : "SELECT (DATE_SUB(_UTF8MB4'2019-08-05', INTERVAL 1 DAY_SECOND)>>`f4`*COS(7327249037932383944)) AS `f1`,(COLLATION(`f4`)&`f5`) AS `f2`,(`f6`) AS `f3` FROM (SELECT `col_varchar(20)_key_signed` AS `f4`,`col_char(20)_undef_signed` AS `f5`,`col_double_key_signed` AS `f6` FROM `table_3_utf8_undef` FORCE INDEX (`col_double_key_unsigned`, `col_varchar(20)_key_signed`)) AS `t1` WHERE (((DATE_SUB(COERCIBILITY(`f4`), INTERVAL 1 DAY_MINUTE))<=ANY (SELECT `col_float_undef_signed` FROM `table_3_utf8_undef` USE INDEX (`col_bigint_key_signed`))) OR ((CAST((DAYOFMONTH(_UTF8MB4'2005-03-14')) AS CHAR) LIKE _UTF8MB4'%1%') IS TRUE)) IS TRUE HAVING 1 ORDER BY `f5`",
+  "upper" : true,
+  "slimoriginalSql" : "SELECT (COLLATION(`f4`)) AS `f2`,(`f6`) AS `f3` FROM (SELECT `col_varchar(20)_key_signed` AS `f4`,`col_char(20)_undef_signed` AS `f5`,`col_double_key_signed` AS `f6` FROM `table_3_utf8_undef` FORCE INDEX (`col_double_key_unsigned`, `col_varchar(20)_key_signed`)) AS `t1`   ORDER BY `f5`",
+  "slimmutatedSql" : "SELECT DISTINCT  (COLLATION(`f4`)) AS `f2`,(`f6`) AS `f3` FROM (SELECT `col_varchar(20)_key_signed` AS `f4`,`col_char(20)_undef_signed` AS `f5`,`col_double_key_signed` AS `f6` FROM `table_3_utf8_undef` FORCE INDEX (`col_double_key_unsigned`, `col_varchar(20)_key_signed`)) AS `t1`   ORDER BY `f5`",
+  "reportTime" : "2022-12-23 13:33:58.027685794 +0800 CST m=+13561.912318044",
+  "mutationName" : "pinolo",
+  "isUpper" : true,
+  "ddlPath" : "example/output.data.sql",
+  "dbms" : "mysql",
+  "host" : "127.0.0.1",
+  "port" : 13306,
+  "username" : "root",
+  "password" : "123456",
+  "dbname" : "TEST3"
+}

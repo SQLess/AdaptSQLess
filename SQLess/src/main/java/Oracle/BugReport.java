@@ -62,49 +62,40 @@ public class BugReport {
 
     /**
      * Dataloader 初始化BugReport
-     * @param json1Path
      * @param json2Path
-     * @param logPath
      * @return
      * @throws IOException
      */
-    public static BugReport DataLoader(String json1Path, String json2Path, String logPath,String ddlPath) throws IOException {
+    public static BugReport DataLoader(String initialPath,String json2Path,String ddlPath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         // Parse the JSON files
-        // No data seems to be taken from json1, so it's parsed but not used here.
-        objectMapper.readValue(Files.readAllBytes(Paths.get(json1Path)), Object.class);
         BugReport json2Data = objectMapper.readValue(Files.readAllBytes(Paths.get(json2Path)), BugReport.class);
-
-        // Read the log file and extract data (we're assuming a certain structure based on the provided log)
-        List<String> logLines = Files.readAllLines(Paths.get(logPath), StandardCharsets.UTF_8);
+        BugReport initialPathData = objectMapper.readValue(Files.readAllBytes(Paths.get(initialPath)), BugReport.class);
 
         BugReport report = new BugReport();
 
-        for (int i = 0; i < logLines.size(); i++) {
-            String line = logLines.get(i);
-            if (line.contains("-- OriginalSql")) {
-                report.originalSql = logLines.get(i + 1).trim();
-            } else if (line.contains("-- MutatedSql")) {
-                report.mutatedSql = logLines.get(i + 1).trim();
-            }
-        }
+        report.originalSql = json2Data.getOriginalSql();
+        report.mutatedSql = json2Data.getMutatedSql();
 
         // Instantiate and return the BugReport object
         report.reportTime = json2Data.getReportTime();
-        report.mutationName = "pinonlo";
         report.isUpper = json2Data.isUpper();
         report.ddlPath = ddlPath;
-        report.dbms = "mysql";
-//        report.dbms = "mariadb";
-        report.host = "127.0.0.1";
-        report.port = 13306;
-//        report.port = 9101;
-//        report.port = 2881;
-//        report.port = 4000;
-        report.username = "root";
-        report.password = "123456";
-        report.dbname = "TEST3";
+        report.mutationName = initialPathData.getMutationName();
+        report.dbms = initialPathData.getDbms();
+        report.host = initialPathData.getHost();
+        report.port = initialPathData.getPort();
+        report.username = initialPathData.getUsername();
+        report.password = initialPathData.getPassword();
+        report.dbname = initialPathData.getDbname();
+//        report.mutationName = "pinolo";
+//        report.dbms = "mysql";
+//        report.host = "127.0.0.1";
+//        report.port = 13306;
+//        report.username = "root";
+//        report.password = "123456";
+//        report.dbname = "TEST3";
 
         return report;
     }
