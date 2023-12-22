@@ -15,9 +15,9 @@ The workflow encompasses two main components: adaptive parser (AdaptParser) and 
 
 The first step involves using the Adaptive Parser to generate a parser  that adapts to various dialects. 
 
-[Adaptive Parser](AdaptParser\README.md)
+[Adaptive Parser](https://github.com/SQLess/AdaptSQLess/tree/main/AdaptParser)
 
 Then, we will apply a trimming strategy on the SQL Query Trimmer.
 
-[SQL Query Trimmer](SQLess\README.md)
+[SQL Query Trimmer](https://github.com/SQLess/AdaptSQLess/tree/main/SQLess)
 
