@@ -25,3 +25,10 @@ replay_pid*
 
 AdaptParser/.idea
 SQLess/.idea
+
+# Ignore all target directories
+target/
+
+# Ignore the .idea folder
+.idea/
+
